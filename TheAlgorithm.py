@@ -76,39 +76,38 @@ def mixed(inp):
             inp[i:i + 3] = key1, key2, inp[i]
             ins += 2 # tracking insertion
             m += 3
-    print(f"Comparisons: {c+c1+c2} \nMovements: {m+s1+s2} \nInsertions: {ins}")
+    print(f"Comparisons: {c+c1+c2} \nMovements: {m+s1+s2} \nInsertions: {ins}\n")
     return inp
 
 
-inn = random.sample(range(10,100000),600)
-inn1 = inn
-inn2 = inn
-#inn = [20,15,10,5]
+input_dataset = random.sample(range(10,100000),1000)
+input_dataset1 = input_dataset
+input_dataset2 = input_dataset
 
 start_b = datetime.now()
-b_sorted, comp, swap = bubble(inn)
+b_sorted, comp, swap = bubble(input_dataset)
 end_b = datetime.now()
 
 start_i = datetime.now()
-i_sorted, comps, swaps = insertion(inn1)
+i_sorted, comps, swaps = insertion(input_dataset1)
 end_i = datetime.now()
 
 start = datetime.now()
-our = mixed(inn2)
+mix_sorted = mixed(input_dataset2)
 end = datetime.now()
 
 
 print(f"time(ms): {(end-start)}")
 print("------------------------------------")
 print("Bubble sort:\n")
-print(f"Comparisons: {comp} \nSwaps: {swap}")
+print(f"Comparisons: {comp} \nSwaps: {swap}\n")
 print(f"time(ms): {-(start_b-end_b)}")
 print("------------------------------------")
 print("Insertion sort:\n")
-print(f"Comparisons: {comps} \nSwaps: {swaps}")
+print(f"Comparisons: {comps} \nSwaps: {swaps}\n")
 print(f"time(ms): {end_i-start_i}\n")
 
-if our == b_sorted:
+if mix_sorted == b_sorted:
     print('The list has been successfully sorted')
     
 
